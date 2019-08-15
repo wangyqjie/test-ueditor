@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ueditor</title>
+    <script src="/ueditor/ueditor.config.js"></script>
+    <script src="/ueditor/ueditor.all.min.js"></script>
+    <script src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script src="/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div style="width: 1000px;height: 300px;" id="content" name="content"></div>
+</body>
+<div id="reset"></div>
+<button onclick="getContent()">保存</button>
+<button onclick="show1()">回显</button>
+<script type="text/javascript">
+    var ueditor = UE.getEditor('content');
+    function getContent() {
+        var arr = [];
+        arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+        arr.push("内容为：");
+        arr.push(ueditor.getContent());
+        $('#reset').text(arr.join("\n"));
+    }
+    function show1(){
+        var ueditor2 = UE.getEditor('content');
+
+        ueditor.setContent("<p><img src='/images/20190814/71dab9d0199d4191acc2017c10fdc573.jpg' title='' alt='Desert.jpg'/></p>");
+
+    }
+</script>
+</html>
